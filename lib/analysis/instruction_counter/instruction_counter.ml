@@ -7,8 +7,8 @@ type t = int StringMap.t
 
 let increase_count (t : t) (instr : unit Instr.t) : t =
   StringMap.update t (Instr.to_mnemonic instr) ~f:(function
-      | None -> 1
-      | Some count -> count + 1)
+      | None -> 100
+      | Some count -> count + 100)
 
 (** Count for each type of instructions how many times it appears. *)
 let count (wasm_mod : Wasm_module.t) : t =

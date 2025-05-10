@@ -1,0 +1,120 @@
+{
+  "clientRemote": "",
+  "gitRemote": "",
+  "gitSha": "",
+  "treeEntries": [
+    {
+      "label": "is this where the code is stored?",
+      "entryType": 1,
+      "author": "b0n0b0",
+      "locations": [
+        {
+          "path": "lib/wasm/func_inst.ml",
+          "startLine": 26,
+          "endLine": 26,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "this could be interesting",
+      "entryType": 1,
+      "author": "b0n0b0",
+      "locations": [
+        {
+          "path": "lib/wasm/instr.ml",
+          "startLine": 535,
+          "endLine": 535,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "binary operators",
+      "entryType": 1,
+      "author": "b0n0b0",
+      "locations": [
+        {
+          "path": "lib/wasm/binop.ml",
+          "startLine": 14,
+          "endLine": 14,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "gets the function body",
+      "entryType": 1,
+      "author": "b0n0b0",
+      "locations": [
+        {
+          "path": "utils.ml",
+          "startLine": 136,
+          "endLine": 136,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    },
+    {
+      "label": "count instructions",
+      "entryType": 1,
+      "author": "b0n0b0",
+      "locations": [
+        {
+          "path": "lib/analysis/instruction_counter/instruction_counter.ml",
+          "startLine": 13,
+          "endLine": 13,
+          "label": "",
+          "description": ""
+        }
+      ],
+      "details": {
+        "severity": "",
+        "difficulty": "",
+        "type": "",
+        "description": "",
+        "exploit": "",
+        "recommendation": "Short term, \nLong term, \n"
+      }
+    }
+  ],
+  "auditedFiles": [],
+  "partiallyAuditedFiles": [],
+  "resolvedEntries": []
+}
