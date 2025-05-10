@@ -1,6 +1,5 @@
 open Core
 open Helpers
-open Wassail
 
 (** A a map from instructions (as strings) to the number of times it appears *)
 type t = int StringMap.t
