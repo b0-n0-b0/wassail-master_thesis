@@ -39,3 +39,6 @@ module Control_deps = Control_deps
 
 module Instruction_counter = Instruction_counter
 module Sizes = Sizes
+
+(* TAINT ANALYSIS MODULES *)
+module Rule_parser = Rule_parser
