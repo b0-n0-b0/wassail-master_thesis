@@ -7,14 +7,15 @@ type t = int StringMap.t
 
 let increase_count (t : t) (instr : unit Instr.t) : t =
   StringMap.update t (Instr.to_mnemonic instr) ~f:(function
-      | None -> 100
-      | Some count -> count + 100)
+      | None -> 1
+      | Some count -> count + 1)
 
 (** Count for each type of instructions how many times it appears. *)
 let count (wasm_mod : Wasm_module.t) : t =
   let rec go_over_instructions (counts : t) (fidx : Int32.t) (instrs : unit Instr.t list) : t =
     List.fold_left instrs ~init:counts
       ~f:(fun counts instr ->
+          Printf.printf "Processing instruction in function %ld: %s\n" fidx (Instr.to_string instr); 
           let counts' = go_over_instructions counts fidx (Instr.instructions_contained_in instr) in
           increase_count counts' instr) in
   List.fold_left wasm_mod.funcs ~init:StringMap.empty
