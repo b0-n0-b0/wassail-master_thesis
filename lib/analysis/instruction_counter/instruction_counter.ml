@@ -14,7 +14,7 @@ let count (wasm_mod : Wasm_module.t) : t =
   let rec go_over_instructions (counts : t) (fidx : Int32.t) (instrs : unit Instr.t list) : t =
     List.fold_left instrs ~init:counts
       ~f:(fun counts instr ->
-          Rules.debug_print fidx instr;
+          Rule_parser.debug_print fidx instr;
           let counts' = go_over_instructions counts fidx (Instr.instructions_contained_in instr) in
           increase_count counts' instr) in
   List.fold_left wasm_mod.funcs ~init:StringMap.empty
