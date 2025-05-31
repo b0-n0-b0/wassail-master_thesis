@@ -92,14 +92,14 @@
       }
     },
     {
-      "label": "count instructions",
+      "label": "this is how he matches instrs in a Control",
       "entryType": 1,
       "author": "b0n0b0",
       "locations": [
         {
-          "path": "lib/analysis/instruction_counter/instruction_counter.ml",
-          "startLine": 13,
-          "endLine": 13,
+          "path": "lib/wasm/instr.ml",
+          "startLine": 208,
+          "endLine": 216,
           "label": "",
           "description": ""
         }
