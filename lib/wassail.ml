@@ -37,8 +37,6 @@ module Slicing = Slicing
 module Use_def = Use_def
 module Control_deps = Control_deps
 
+module Rule_parser = Rule_parser
 module Instruction_counter = Instruction_counter
 module Sizes = Sizes
-
-(* TAINT ANALYSIS MODULES *)
-module Rules = Rules

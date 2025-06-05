@@ -22,29 +22,17 @@ let rec flatten_instrs (instrs : unit Instr.t list) : unit Instr.t list =
   )
 ;;
 
+(* TODO: right now we do not care if two instructions cannot be executed in sequence, we have to do that for loops and if/else branches *)
+(** applies the specified rule  *)
 let search_specific_instruction (wasm_mod : Wasm_module.t) (mnemonic : string) : unit = 
   List.iter wasm_mod.funcs ~f:(fun func ->
     Printf.printf "_______________ function %ld _______________\n" func.idx;
     let flat_instrs = flatten_instrs func.code.body in
     List.iteri flat_instrs ~f:(fun idx instr ->
-      Printf.printf "Instr %d: %s\n" (idx+1) (Instr.to_mnemonic instr)
+      (* Printf.printf "Instr %d: %s\n" (idx+1) (Instr.to_mnemonic instr) *)
+      (* Uncomment to match specific instructions *)
+      if String.equal (Instr.to_mnemonic instr) mnemonic then
+        Printf.printf "%s present in function %ld at offset %d\n" (Instr.to_mnemonic instr) func.idx idx
     )
   )
 ;;
-
-
-(* let apply_rule *)
-(* TODO: read from multiline and parse rules *)
-(* TODO: create a structure to represent the rule *)
-(*
-  A rule file contains a list of at least one rule
-  All the rules will be applied with a logic-AND fashion and a constraint on sequence can be enforced
-  E.G.
-  
-  rule1 > rule2 means that rule2 only applies to instructions that are following the one instruction that verifies rule1
-  rule1; rule2 means that both rules must be verified, but there's no constraint on the order
-
-  Every rule must contain: 
-  - the mnemonic of the instruction to which it is related (i.e. int32.div_s)
-  - the conditions on the parameters (if not present, the instruction just needs to be there)
- *)

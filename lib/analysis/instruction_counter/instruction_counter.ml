@@ -10,9 +10,7 @@ let increase_count (t : t) (instr : unit Instr.t) : t =
       | Some count -> count + 1)
 
 (** Count for each type of instructions how many times it appears. *)
-let count (wasm_mod : Wasm_module.t) : t =
-  Rule_parser.search_specific_instruction wasm_mod "i32.add";
-  
+let count (wasm_mod : Wasm_module.t) : t =  
   let rec go_over_instructions (counts : t) (fidx : Int32.t) (instrs : unit Instr.t list) : t =
     List.fold_left instrs ~init:counts
     ~f:(fun counts instr ->
