@@ -1,7 +1,6 @@
 open Core
 open Helpers
 
-(* TODO: This module will handle the rule parsing *)
 (* for now we suppose to have a parsed rule structure *)
 let rec flatten_instrs (instrs : unit Instr.t list) : unit Instr.t list =
   List.concat_map instrs ~f:(fun instr ->
@@ -22,17 +21,18 @@ let rec flatten_instrs (instrs : unit Instr.t list) : unit Instr.t list =
   )
 ;;
 
-(* TODO: right now we do not care if two instructions cannot be executed in sequence, we have to do that for loops and if/else branches *)
 (** applies the specified rule  *)
-let search_specific_instruction (wasm_mod : Wasm_module.t) (mnemonic : string) : unit = 
+let search_specific_instruction (wasm_mod : Wasm_module.t) (rules : string) : unit = 
   List.iter wasm_mod.funcs ~f:(fun func ->
-    Printf.printf "_______________ function %ld _______________\n" func.idx;
-    let flat_instrs = flatten_instrs func.code.body in
-    List.iteri flat_instrs ~f:(fun idx instr ->
-      (* Printf.printf "Instr %d: %s\n" (idx+1) (Instr.to_mnemonic instr) *)
-      (* Uncomment to match specific instructions *)
-      if String.equal (Instr.to_mnemonic instr) mnemonic then
-        Printf.printf "%s present in function %ld at offset %d\n" (Instr.to_mnemonic instr) func.idx idx
+    let rules_array = String.split_on_chars rules [','] in
+    List.iteri rules_array  ~f:(fun ridx rule -> 
+      (* Printf.printf "__________rule %d__________\n" ridx; *)
+      let flat_instrs = flatten_instrs func.code.body in
+      List.iteri flat_instrs ~f:(fun idx instr ->
+        if String.equal (Instr.to_mnemonic instr) rule then
+            Printf.printf "%d|%ld,%d\n" ridx func.idx idx
+        )  
     )
+
   )
 ;;
