@@ -21,7 +21,7 @@ let () =
        ; "function-body", Utils.function_body
        ; "functions", Utils.functions
        ; "count", Utils.count
-       (* DODODBG: add a command *)
+       (* NOTE: add a command *)
        ; "apply-rule", Utils.apply_rule
 
        (* Utilities that require building the CFGs *)

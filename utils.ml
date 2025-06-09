@@ -41,7 +41,7 @@ let count =
         let counts = Instruction_counter.count _module in
         List.iter (StringMap.to_alist counts)
           ~f:(fun (instr, count) -> Printf.printf "%s: %d\n" instr count))
-(* DODODBG *)
+(* NOTE *)
 let apply_rule =
   Command.basic
     ~summary:"Applies matching rules from rules file [RULE_FILE] to imported module [MODULE]"
@@ -51,7 +51,7 @@ let apply_rule =
         let _module : Wasm_module.t = Wasm_module.of_file file_in in
         Rule_parser.search_specific_instruction _module rules
         )
-(* DODODBG *)
+(* NOTE *)
 let imports =
   Command.basic
     ~summary:"List functions imported by a WebAssembly module"
