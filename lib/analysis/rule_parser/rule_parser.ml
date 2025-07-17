@@ -30,7 +30,7 @@ let search_specific_instruction (wasm_mod : Wasm_module.t) (rules : string) : un
       let flat_instrs = flatten_instrs func.code.body in
       List.iteri flat_instrs ~f:(fun idx instr ->
         if String.equal (Instr.to_mnemonic instr) rule then
-            Printf.printf "%d|%d,%d\n" ridx (Option.value_exn (Int32.to_int func.idx) - Option.value_exn (Int32.to_int wasm_mod.nfuncimports)) idx
+            Printf.printf "%d|%ld,%d\n" ridx func.idx idx
         )  
     )
 
